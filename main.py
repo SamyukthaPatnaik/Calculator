@@ -30,6 +30,10 @@ def discount():
     st.subheader("Discounted Price -")
     st.success(discounted_price)
 
+    saved = price - discounted_price
+    with st.expander ( "Saved" ):
+        st.success ( saved )
+
 def age():
     st.title("Age Calculator")
     birth_date = st.date_input("Your Date Of Birth")
@@ -41,6 +45,13 @@ def age():
 def loan():
     st.title("Loan Calculator")
 
+    amount = st.number_input ( "Loan Amount" )
+    rate = st.number_input ( "Interest Rate (%)" )
+    years = st.number_input ( "Loan Term (years)" )
+    r = rate / 100 / 12
+    n = years * 12
+    payment = (r * amount) / (1 - ((1 + r) ** (-n)))
+    st.write ( "Monthly Payment: ", payment )
 
 #----------------------------------------------------
 
