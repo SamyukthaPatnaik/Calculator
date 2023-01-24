@@ -1,6 +1,8 @@
 import streamlit as st
+import pandas as pd
 import dateutil.utils
 from streamlit_option_menu import option_menu
+from forex_python.converter import CurrencyRates
 
 def calculator():
     st.title("Arithmetic Calculator")
@@ -53,13 +55,27 @@ def loan():
     payment = (r * amount) / (1 - ((1 + r) ** (-n)))
     st.write ( "Monthly Payment: ", payment )
 
+def currency():
+    st.title("Currency Calculator")
+    c = CurrencyRates()
+    amount = st.number_input( "Enter the amount: " )
+    currency = pd.read_excel('Currency_Data.xls')
+    # currency_name = currency['Currency Name']
+    # currency_symbol = currency['Currency Symbol']
+    currency_code = currency['ISO code']
+    currency_from = st.selectbox( "Enter or select the currency code to convert from: ", currency_code)
+    currency_to = st.selectbox ( "Enter or select the currency code to convert to: ", currency_code )
+    if st.button ( "Convert" ):
+        result = c.convert ( currency_from, currency_to, float ( amount ) )
+        st.write ( "Result: ", result )
+
 #----------------------------------------------------
 
 st.sidebar.title("CALCULATOR")
 with st.sidebar:
     choice = option_menu(menu_title="Menu",
-                         options=["Arithmetic Calculator", "Discount Calculator", "Age Calculator", "Loan Calculator"],
-                         icons=["calculator", "tag", "calendar2", "coin"],
+                         options=["Arithmetic Calculator", "Discount Calculator", "Age Calculator", "Loan Calculator", "Currency Calculator"],
+                         icons=["calculator", "tag", "calendar2", "coin", "arrow-left-right"],
                          menu_icon="cast",
                          default_index=0)
 
@@ -71,4 +87,5 @@ elif choice == "Age Calculator":
     age()
 elif choice == "Loan Calculator":
     loan()
-
+elif choice == "Currency Calculator":
+    currency()
