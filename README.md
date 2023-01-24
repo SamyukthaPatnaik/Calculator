@@ -4,3 +4,4 @@ It Includes -
 2. Discount Calculator
 3. Age Calculator
 4. Loan Calculator
+5. Currency Calculator
