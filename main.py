@@ -7,7 +7,7 @@ from forex_python.converter import CurrencyRates
 
 def calculator():
     st.title("Arithmetic Calculator")
-    st.write("-----")
+    st.write("-----") #seperator
 
     num1 = st.number_input("Enter First Number: ")
     num2 = st.number_input("Enter Second Number: ")
