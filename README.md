@@ -1,4 +1,5 @@
 # Calculator in Streamlit
+
 It Includes -
 1. Arithmetic Operation 
 2. Discount Calculator
