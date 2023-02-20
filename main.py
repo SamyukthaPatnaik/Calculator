@@ -1,3 +1,4 @@
+#import
 import streamlit as st
 import pandas as pd
 from datetime import datetime, date
@@ -5,6 +6,7 @@ import dateutil.utils
 from streamlit_option_menu import option_menu
 from forex_python.converter import CurrencyRates
 
+#define
 def calculator():
     st.title("Arithmetic Calculator")
     st.write("-----") #seperator
@@ -100,7 +102,7 @@ def currency():
         st.write ( "Result: ", result )
 
 #----------------------------------------------------
-
+#main
 st.sidebar.title("CALCULATOR")
 with st.sidebar:
     choice = option_menu(menu_title="Menu",
