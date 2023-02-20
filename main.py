@@ -121,3 +121,6 @@ elif choice == "Loan Calculator":
     loan()
 elif choice == "Currency Calculator":
     currency()
+
+    
+#run this file using the command- streamlit run main.py  
