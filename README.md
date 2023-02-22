@@ -1,6 +1,6 @@
 # Calculator in Streamlit
 
-It Includes -
+It Includes :-
 1. Arithmetic Operation 
 2. Discount Calculator
 3. Age Calculator
